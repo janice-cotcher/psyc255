@@ -1,3 +1,6 @@
+from convert import extractStem
+import re
+
 def createTex(name,files):
     header = """
 \\documentclass{book}
@@ -19,6 +22,21 @@ def createTex(name,files):
         output.write(header)
         
         for file in files:
-            output.write(f"\\section{file}")
+            name = extractStem(file)
+            title = cleanedTitle(name)
+            output.write("\\section{"+title+"}\n")
+            
         output.write(footer)
     print(f"{name} was successfully created")
+
+def cleanedTitle(name):
+    temp = extractStem(name)
+    pattern = r"((\d{1,2}-(\d{1,2}-)?)(.*)(-(.*)?))"
+    match = re.findall(r'\w+',temp)
+    title = ""
+    for word in match:
+        title += f"{word} "
+    print(title)
+
+
+    # return title.title()

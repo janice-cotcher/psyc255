@@ -15,9 +15,9 @@ def createDir(output_dir):
 
 def slideConvert(input, output):
     # Load the presentation
-    presentation = slides.Presentation("input.pptx")
+    presentation = slides.Presentation(input)
     # Save as PDF
-    presentation.save("output.pdf", slides.export.SaveFormat.PDF)
+    presentation.save(output, slides.export.SaveFormat.PDF)
 
 
 def wordConvert(file, dir):
@@ -40,3 +40,6 @@ def extractName(file, dir, ext):
     new_file = f"{file_name_without_ext}.{ext}"
     full_path = os.path.join(dir, new_file)
     return full_path
+
+def extractStem(file):
+    return Path(file).stem

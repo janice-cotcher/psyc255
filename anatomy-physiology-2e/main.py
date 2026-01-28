@@ -1,5 +1,5 @@
 from getFiles import list_files_pathlib, list_all_files_os_walk
-from createMenu import createTex
+from createMenu import createTex,cleanedTitle
 from convert import slideConvert, wordConvert
 
 def main():
@@ -7,9 +7,12 @@ def main():
     # slides = list_files_pathlib('slides')
     label = list_all_files_os_walk('label_images')
     
-    createTex("textbook.tex",textbook)
-    slideConvert('slides', 'slide_pdf')
-    createTex("label_image.tex", label)
+    # createTex("textbook.tex",textbook)
+    # slideConvert('slides', 'slide_pdf')
+    # createTex("label_image.tex", label)
+    title = r"anatomy-physiology-2e/anatomy-and-physiology-2e/28-review-questions.docx"
+    cleanedTitle(title)
+
         
         
         
