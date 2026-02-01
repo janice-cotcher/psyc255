@@ -1,0 +1,91 @@
+flowchart TD
+    ROOT["Neural Tube"]
+    START["Anterior Neural Tube"]
+    POST["Posterior Neural Tube"]
+    
+    %% Primary Vesicles
+    PROS["Prosencephalon<br/>(Primary Vesicle)"]
+    MES["Mesencephalon<br/>(Primary Vesicle)"]
+    RHOMB["Rhombencephalon<br/>(Primary Vesicle)"]
+    
+    %% Secondary Vesicles
+    TELEN["Telencephalon<br/>(Secondary Vesicle)"]
+    DIEN["Diencephalon<br/>(Secondary Vesicle)"]
+    MES2["Mesencephalon<br/>(Secondary Vesicle)"]
+    METEN["Metencephalon<br/>(Secondary Vesicle)"]
+    MYELEN["Myelencephalon<br/>(Secondary Vesicle)"]
+    
+    %% Adult Structures
+    CEREB["Cerebrum"]
+    DIEN_A["Diencephalon"]
+    MID["Midbrain"]
+    PONS["Pons & Cerebellum"]
+    MED["Medulla"]
+    
+    %% Ventricles
+    LAT_V["Lateral Ventricles"]
+    THIRD_V["Third Ventricle"]
+    AQ["Cerebral Aqueduct"]
+    FOURTH_V1["Fourth Ventricle"]
+    FOURTH_V2["Fourth Ventricle"]
+    
+    %% Posterior pathway
+    SPINE["Spinal Cord"]
+    CANAL["Central Canal"]
+    
+    %% Root branches
+    ROOT --> START
+    ROOT --> POST
+    
+    %% Connections from Anterior Neural Tube
+    START --> PROS
+    START --> MES
+    START --> RHOMB
+    
+    %% Prosencephalon branches
+    PROS --> TELEN
+    PROS --> DIEN
+    
+    %% Telencephalon pathway
+    TELEN --> CEREB
+    CEREB --> LAT_V
+    
+    %% Diencephalon pathway
+    DIEN --> DIEN_A
+    DIEN_A --> THIRD_V
+    
+    %% Mesencephalon pathway
+    MES --> MES2
+    MES2 --> MID
+    MID --> AQ
+    
+    %% Rhombencephalon branches
+    RHOMB --> METEN
+    RHOMB --> MYELEN
+    
+    %% Metencephalon pathway
+    METEN --> PONS
+    PONS --> FOURTH_V1
+    
+    %% Myelencephalon pathway
+    MYELEN --> MED
+    MED --> FOURTH_V2
+    
+    %% Posterior Neural Tube pathway
+    POST --> SPINE
+    SPINE --> CANAL
+    
+    %% Styling
+    classDef root fill:#4a5568,stroke:#2d3748,color:#fff,stroke-width:3px
+    classDef neuralTube fill:#667eea,stroke:#5568d3,color:#fff,stroke-width:2px
+    classDef primary fill:#f093fb,stroke:#d87fe0,color:#fff,stroke-width:2px
+    classDef secondary fill:#4facfe,stroke:#3b8ace,color:#fff,stroke-width:2px
+    classDef adult fill:#43e97b,stroke:#36ba62,color:#fff,stroke-width:2px
+    classDef ventricle fill:#fa709a,stroke:#e85a84,color:#fff,stroke-width:2px
+    
+    class ROOT root
+    class START,POST neuralTube
+    class PROS,MES,RHOMB primary
+    class TELEN,DIEN,MES2,METEN,MYELEN secondary
+    class CEREB,DIEN_A,MID,PONS,MED,SPINE adult
+    class LAT_V,THIRD_V,AQ,FOURTH_V1,FOURTH_V2,CANAL ventricle
